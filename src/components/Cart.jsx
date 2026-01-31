@@ -30,7 +30,7 @@ function Cart() {
       <div className={`cart-sidebar ${isOpen ? 'cart-sidebar-open' : ''}`}>
         <div className="cart-header">
           <h2 className="cart-title">
-            Корзина
+            Выбранные товары
             {totalItems > 0 && (
               <span className="cart-title-count">({totalItems})</span>
             )}
@@ -52,8 +52,8 @@ function Cart() {
                 <path d="M16 10a4 4 0 0 1-8 0"/>
               </svg>
             </div>
-            <p className="cart-empty-text">Корзина пуста</p>
-            <p className="cart-empty-subtext">Добавьте товары из каталога</p>
+            <p className="cart-empty-text">Список пуст</p>
+            <p className="cart-empty-subtext">Выберите интересующие товары</p>
             <Link to="/catalog" className="btn btn-primary" onClick={closeCart}>
               Перейти в каталог
             </Link>
@@ -118,10 +118,10 @@ function Cart() {
                 <span className="cart-total-label">Итого:</span>
                 <span className="cart-total-price">{formatPrice(totalPrice)} ₽</span>
               </div>
-              <button className="btn btn-primary cart-checkout">
-                Оформить заказ
-              </button>
-              <p className="cart-note">Доставка рассчитывается при оформлении</p>
+              <Link to="/checkout" className="btn btn-primary cart-checkout" onClick={closeCart}>
+                Отправить список
+              </Link>
+              <p className="cart-note">Менеджер свяжется с вами для консультации</p>
             </div>
           </>
         )}

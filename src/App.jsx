@@ -7,7 +7,7 @@ import CategoryPage from './pages/CategoryPage'
 import ProductPage from './pages/ProductPage'
 import ContactPage from './pages/ContactPage'
 import AboutPage from './pages/AboutPage'
-import DeliveryPage from './pages/DeliveryPage'
+import CheckoutPage from './pages/CheckoutPage'
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
           <Route path="product/:productId" element={<ProductPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="about" element={<AboutPage />} />
-          <Route path="delivery" element={<DeliveryPage />} />
+          <Route path="checkout" element={<CheckoutPage />} />
         </Route>
       </Routes>
     </>

@@ -1,7 +1,123 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './AboutPage.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function AboutPage() {
+  const pageRef = useRef(null)
+
+  useGSAP(() => {
+    // Начальные состояния
+    gsap.set('.breadcrumb', { autoAlpha: 0, x: -20 })
+    gsap.set('.about-hero-title', { autoAlpha: 0, y: 30 })
+    gsap.set('.about-hero-subtitle', { autoAlpha: 0, y: 20 })
+    gsap.set('.stat-item', { autoAlpha: 0, y: 30 })
+    gsap.set('.about-text', { autoAlpha: 0, x: -40 })
+    gsap.set('.about-image', { autoAlpha: 0, x: 40 })
+    gsap.set('.value-card', { autoAlpha: 0, y: 40, scale: 0.95 })
+    gsap.set('.why-content', { autoAlpha: 0, x: -40 })
+    gsap.set('.why-image', { autoAlpha: 0, x: 40 })
+
+    // Hero анимация
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+    heroTl
+      .to('.breadcrumb', { autoAlpha: 1, x: 0, duration: 0.5 })
+      .to('.about-hero-title', { autoAlpha: 1, y: 0, duration: 0.7 }, '-=0.3')
+      .to('.about-hero-subtitle', { autoAlpha: 1, y: 0, duration: 0.6 }, '-=0.4')
+
+    // Статистика - счётчики
+    gsap.to('.stat-item', {
+      autoAlpha: 1,
+      y: 0,
+      stagger: 0.1,
+      duration: 0.6,
+      delay: 0.5,
+      ease: 'back.out(1.4)'
+    })
+
+    // Анимация чисел в статистике
+    const statNumbers = pageRef.current?.querySelectorAll('.stat-number')
+    statNumbers?.forEach((el) => {
+      const text = el.textContent || ''
+      const num = parseInt(text.replace(/\D/g, '')) || 0
+      const prefix = text.match(/^[^\d]*/)?.[0] || ''
+      const suffix = text.match(/[^\d]*$/)?.[0] || ''
+      
+      const obj = { val: 0 }
+      gsap.to(obj, {
+        val: num,
+        duration: 2,
+        delay: 0.8,
+        ease: 'power1.out',
+        onUpdate: () => {
+          el.textContent = prefix + Math.round(obj.val).toLocaleString() + suffix
+        }
+      })
+    })
+
+    // About Content секция
+    gsap.to('.about-text', {
+      scrollTrigger: { trigger: '.about-content', start: 'top 75%' },
+      autoAlpha: 1,
+      x: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    })
+    gsap.to('.about-image', {
+      scrollTrigger: { trigger: '.about-content', start: 'top 75%' },
+      autoAlpha: 1,
+      x: 0,
+      duration: 0.8,
+      delay: 0.2,
+      ease: 'power3.out'
+    })
+
+    // Values карточки
+    gsap.to('.value-card', {
+      scrollTrigger: { trigger: '.values-grid', start: 'top 80%' },
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      stagger: 0.1,
+      duration: 0.6,
+      ease: 'back.out(1.4)'
+    })
+
+    // Why Us секция
+    gsap.to('.why-content', {
+      scrollTrigger: { trigger: '.why-grid', start: 'top 75%' },
+      autoAlpha: 1,
+      x: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    })
+    gsap.to('.why-image', {
+      scrollTrigger: { trigger: '.why-grid', start: 'top 75%' },
+      autoAlpha: 1,
+      x: 0,
+      duration: 0.8,
+      delay: 0.2,
+      ease: 'power3.out'
+    })
+
+    // Список "Почему выбирают нас"
+    gsap.fromTo('.why-list li', 
+      { autoAlpha: 0, x: -20 },
+      {
+        scrollTrigger: { trigger: '.why-list', start: 'top 80%' },
+        autoAlpha: 1,
+        x: 0,
+        stagger: 0.08,
+        duration: 0.5,
+        delay: 0.3,
+        ease: 'power2.out'
+      }
+    )
+  }, { scope: pageRef })
   const stats = [
     { number: '15+', label: 'лет на рынке' },
     { number: '10 000+', label: 'довольных клиентов' },
@@ -57,7 +173,7 @@ function AboutPage() {
   ]
 
   return (
-    <div className="about-page">
+    <div className="about-page" ref={pageRef}>
       {/* Hero */}
       <section className="about-hero">
         <div className="container">

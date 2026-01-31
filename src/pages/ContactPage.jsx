@@ -1,7 +1,73 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { useGSAP } from '@gsap/react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './ContactPage.css'
 
+gsap.registerPlugin(ScrollTrigger)
+
 function ContactPage() {
+  const pageRef = useRef(null)
+
+  useGSAP(() => {
+    // Начальные состояния
+    gsap.set('.breadcrumb', { autoAlpha: 0, x: -20 })
+    gsap.set('.page-title', { autoAlpha: 0, y: 30 })
+    gsap.set('.section-subtitle', { autoAlpha: 0, y: 20 })
+    gsap.set('.branch-card', { autoAlpha: 0, y: 30, scale: 0.98 })
+    gsap.set('.contact-card', { autoAlpha: 0, x: -30 })
+    gsap.set('.contact-form-wrapper', { autoAlpha: 0, y: 40 })
+    gsap.set('.map-section', { autoAlpha: 0, y: 30 })
+
+    // Timeline для hero
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+    heroTl
+      .to('.breadcrumb', { autoAlpha: 1, x: 0, duration: 0.5 })
+      .to('.page-title', { autoAlpha: 1, y: 0, duration: 0.6 }, '-=0.3')
+      .to('.section-subtitle', { autoAlpha: 1, y: 0, duration: 0.5 }, '-=0.3')
+
+    // Карточки филиалов
+    gsap.to('.branch-card', {
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      stagger: 0.15,
+      duration: 0.6,
+      delay: 0.4,
+      ease: 'back.out(1.4)'
+    })
+
+    // Контактные карточки
+    gsap.to('.contact-card', {
+      scrollTrigger: { trigger: '.contact-grid', start: 'top 80%' },
+      autoAlpha: 1,
+      x: 0,
+      stagger: 0.1,
+      duration: 0.5,
+      ease: 'power2.out'
+    })
+
+    // Форма
+    gsap.to('.contact-form-wrapper', {
+      scrollTrigger: { trigger: '.contact-grid', start: 'top 80%' },
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.7,
+      delay: 0.2,
+      ease: 'power3.out'
+    })
+
+    // Карта
+    gsap.to('.map-section', {
+      scrollTrigger: { trigger: '.map-section', start: 'top 85%' },
+      autoAlpha: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out'
+    })
+  }, { scope: pageRef })
+
   const branches = [
     {
       id: 1,
@@ -26,7 +92,7 @@ function ContactPage() {
   ]
 
   return (
-    <div className="contact-page">
+    <div className="contact-page" ref={pageRef}>
       <div className="container">
         {/* Breadcrumb */}
         <nav className="breadcrumb">
@@ -158,6 +224,83 @@ function ContactPage() {
             </form>
           </div>
         </div>
+
+        {/* Map Section */}
+        <section className="map-section">
+          <h2 className="section-subtitle">Мы на карте</h2>
+          <div className="maps-grid">
+            <div className="map-card">
+              <h3 className="map-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Филиал на Коммуны
+              </h3>
+              <div className="map-wrapper">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=61.382117%2C55.162139&z=17&pt=61.382117%2C55.162139%2Cpm2rdm"
+                  width="100%"
+                  height="300"
+                  frameBorder="0"
+                  allowFullScreen
+                  title="Филиал на Коммуны"
+                ></iframe>
+              </div>
+              <div className="map-footer">
+                <p className="map-address">г. Челябинск, ул. Коммуны, 127</p>
+                <a 
+                  href="https://yandex.ru/maps/?text=Челябинск%20улица%20Коммуны%20127" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="map-link"
+                >
+                  Открыть в Яндекс Картах
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+            <div className="map-card">
+              <h3 className="map-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                Филиал на Труда
+              </h3>
+              <div className="map-wrapper">
+                <iframe
+                  src="https://yandex.ru/map-widget/v1/?ll=61.365696%2C55.171488&z=17&pt=61.365696%2C55.171488%2Cpm2rdm"
+                  width="100%"
+                  height="300"
+                  frameBorder="0"
+                  allowFullScreen
+                  title="Филиал на Труда"
+                ></iframe>
+              </div>
+              <div className="map-footer">
+                <p className="map-address">г. Челябинск, ул. Труда, 174</p>
+                <a 
+                  href="https://yandex.ru/maps/?text=Челябинск%20улица%20Труда%20174" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="map-link"
+                >
+                  Открыть в Яндекс Картах
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   )

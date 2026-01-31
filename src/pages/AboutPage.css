@@ -1,3 +1,16 @@
+/* GSAP - скрываем элементы до анимации */
+.about-page .breadcrumb,
+.about-page .about-hero-title,
+.about-page .about-hero-subtitle,
+.about-page .stat-item,
+.about-page .about-text,
+.about-page .about-image,
+.about-page .value-card,
+.about-page .why-content,
+.about-page .why-image {
+  visibility: hidden;
+}
+
 /* Hero */
 .about-hero {
   background-color: var(--color-light);
