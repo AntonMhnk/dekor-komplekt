@@ -11,6 +11,9 @@ import "./CatalogPage.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Metadata нужно вынести в отдельный layout.jsx для 'use client' страниц
+// или использовать generateMetadata в серверном компоненте-обёртке
+
 export default function CatalogPage() {
 	const pageRef = useRef(null);
 

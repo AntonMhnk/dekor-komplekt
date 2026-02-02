@@ -94,7 +94,7 @@ export default function Cart() {
 									</div>
 									<div className="cart-item-info">
 										<Link
-											href={`/product/${item.id}`}
+											href={`/product/${item.slug}`}
 											className="cart-item-name"
 											onClick={closeCart}
 										>

@@ -7,7 +7,7 @@ import { useCart } from "../providers";
 import "./ProductCard.css";
 
 export default function ProductCard({ product }) {
-	const { id, name, price, oldPrice, image, category, isNew, isSale } = product;
+	const { slug, name, price, oldPrice, image, category, isNew, isSale } = product;
 	const { addItem } = useCart();
 	const [isAdded, setIsAdded] = useState(false);
 	const cardRef = useRef(null);
@@ -46,7 +46,7 @@ export default function ProductCard({ product }) {
 
 	return (
 		<article className="product-card" ref={cardRef}>
-			<Link href={`/product/${id}`} className="product-card-link">
+			<Link href={`/product/${slug}`} className="product-card-link">
 				<div className="product-card-image">
 					<img src={image} alt={name} loading="lazy" />
 					{isNew && (

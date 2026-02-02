@@ -18,9 +18,20 @@ export async function generateMetadata({ params }) {
 	const category = getCategoryBySlug(params.categorySlug);
 	if (!category) return { title: "Категория не найдена" };
 
+	const siteUrl = "https://dekor-komplekt.ru";
+
 	return {
 		title: category.name,
-		description: category.description,
+		description: `${category.description} Купить ${category.name.toLowerCase()} в Челябинске. Доставка по городу.`,
+		alternates: {
+			canonical: `${siteUrl}/catalog/${category.slug}`,
+		},
+		openGraph: {
+			title: `${category.name} | Декор Комплект`,
+			description: category.description,
+			url: `${siteUrl}/catalog/${category.slug}`,
+			images: [{ url: category.image, alt: category.name }],
+		},
 	};
 }
 

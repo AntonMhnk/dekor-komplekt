@@ -77,6 +77,7 @@ export const products = [
   // Краска
   {
     id: 1,
+    slug: 'kraska-velvet-matte',
     name: 'Краска интерьерная Velvet Matte',
     price: 4500,
     category: 'Краска',
@@ -87,6 +88,7 @@ export const products = [
   },
   {
     id: 2,
+    slug: 'kraska-weathershield',
     name: 'Краска фасадная WeatherShield',
     price: 5200,
     oldPrice: 6000,
@@ -98,6 +100,7 @@ export const products = [
   },
   {
     id: 3,
+    slug: 'kraska-pearl',
     name: 'Краска акриловая Pearl',
     price: 3800,
     category: 'Краска',
@@ -109,6 +112,7 @@ export const products = [
   // Декоративная штукатурка
   {
     id: 4,
+    slug: 'shtukaturka-venice-premium',
     name: 'Штукатурка Venice Premium',
     price: 8500,
     category: 'Декоративная штукатурка',
@@ -119,6 +123,7 @@ export const products = [
   },
   {
     id: 5,
+    slug: 'shtukaturka-travertino',
     name: 'Штукатурка Travertino',
     price: 7200,
     category: 'Декоративная штукатурка',
@@ -128,6 +133,7 @@ export const products = [
   },
   {
     id: 6,
+    slug: 'shtukaturka-silk-touch',
     name: 'Штукатурка Silk Touch',
     price: 6800,
     oldPrice: 7500,
@@ -141,6 +147,7 @@ export const products = [
   // Обои
   {
     id: 7,
+    slug: 'oboi-geometric-art',
     name: 'Обои Geometric Art',
     price: 12000,
     category: 'Обои',
@@ -151,6 +158,7 @@ export const products = [
   },
   {
     id: 8,
+    slug: 'oboi-botanical-garden',
     name: 'Обои Botanical Garden',
     price: 9500,
     category: 'Обои',
@@ -160,6 +168,7 @@ export const products = [
   },
   {
     id: 9,
+    slug: 'oboi-minimalist-line',
     name: 'Обои Minimalist Line',
     price: 8000,
     category: 'Обои',
@@ -171,6 +180,7 @@ export const products = [
   // Фрески
   {
     id: 10,
+    slug: 'freska-renaissance',
     name: 'Фреска Renaissance',
     price: 45000,
     category: 'Фрески',
@@ -181,6 +191,7 @@ export const products = [
   },
   {
     id: 11,
+    slug: 'freska-modern-abstract',
     name: 'Фреска Modern Abstract',
     price: 35000,
     category: 'Фрески',
@@ -192,6 +203,7 @@ export const products = [
   // Лепной декор
   {
     id: 12,
+    slug: 'karniz-classic',
     name: 'Карниз потолочный Classic',
     price: 2500,
     category: 'Лепной декор',
@@ -201,6 +213,7 @@ export const products = [
   },
   {
     id: 13,
+    slug: 'rozetka-ornament',
     name: 'Розетка потолочная Ornament',
     price: 4800,
     oldPrice: 5500,
@@ -212,6 +225,7 @@ export const products = [
   },
   {
     id: 14,
+    slug: 'molding-art-deco',
     name: 'Молдинг настенный Art Deco',
     price: 1800,
     category: 'Лепной декор',
@@ -224,6 +238,7 @@ export const products = [
   // Пол
   {
     id: 15,
+    slug: 'parket-natural-oak',
     name: 'Паркет дубовый Natural Oak',
     price: 9500,
     category: 'Пол',
@@ -233,6 +248,7 @@ export const products = [
   },
   {
     id: 16,
+    slug: 'laminat-premium-walnut',
     name: 'Ламинат Premium Walnut',
     price: 3200,
     category: 'Пол',
@@ -244,6 +260,7 @@ export const products = [
   // Ковры
   {
     id: 17,
+    slug: 'kover-persian-heritage',
     name: 'Ковер Persian Heritage',
     price: 85000,
     category: 'Ковры',
@@ -254,6 +271,7 @@ export const products = [
   },
   {
     id: 18,
+    slug: 'kover-modern-geometric',
     name: 'Ковер Modern Geometric',
     price: 32000,
     oldPrice: 38000,
@@ -267,6 +285,7 @@ export const products = [
   // Клеевые материалы
   {
     id: 19,
+    slug: 'klej-probond',
     name: 'Клей для обоев ProBond',
     price: 850,
     category: 'Клеевые материалы',
@@ -276,6 +295,7 @@ export const products = [
   },
   {
     id: 20,
+    slug: 'gruntovka-universal-prime',
     name: 'Грунтовка Universal Prime',
     price: 1200,
     category: 'Клеевые материалы',
@@ -288,6 +308,10 @@ export const products = [
 
 export const getProductById = (id) => {
   return products.find((p) => p.id === Number(id))
+}
+
+export const getProductBySlug = (slug) => {
+  return products.find((p) => p.slug === slug)
 }
 
 export const getProductsByCategory = (categorySlug) => {
