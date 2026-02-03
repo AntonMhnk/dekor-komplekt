@@ -33,10 +33,11 @@
 }
 
 .logo-name {
+  font-family: var(--font-logo);
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-brown);
-  letter-spacing: -0.3px;
+  letter-spacing: 0;
 }
 
 .logo-tagline {

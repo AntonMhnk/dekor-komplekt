@@ -5,14 +5,12 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ProductCard from "./components/ProductCard";
-import { categories, getNewProducts } from "./data/products";
+import { categories } from "./data/products";
 import "./HomePage.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomePage() {
-	const newProducts = getNewProducts().slice(0, 4);
 	const containerRef = useRef(null);
 
 	useGSAP(
@@ -97,22 +95,6 @@ export default function HomePage() {
 					stagger: 0.12,
 					duration: 0.7,
 					ease: "back.out(1.4)",
-				},
-			);
-
-			gsap.fromTo(
-				".new-products-section .product-card",
-				{ opacity: 0, y: 50 },
-				{
-					scrollTrigger: {
-						trigger: ".new-products-section .grid",
-						start: "top 85%",
-					},
-					opacity: 1,
-					y: 0,
-					stagger: 0.1,
-					duration: 0.6,
-					ease: "power2.out",
 				},
 			);
 
@@ -329,36 +311,6 @@ export default function HomePage() {
 									</span>
 								</div>
 							</Link>
-						))}
-					</div>
-				</div>
-			</section>
-
-			<section className="section new-products-section">
-				<div className="container">
-					<div className="section-header">
-						<div>
-							<span className="section-label">Новинки</span>
-							<h2>Новые поступления</h2>
-						</div>
-						<Link href="/catalog" className="section-link">
-							Весь каталог
-							<svg
-								width="16"
-								height="16"
-								viewBox="0 0 24 24"
-								fill="none"
-								stroke="currentColor"
-								strokeWidth="2"
-							>
-								<line x1="5" y1="12" x2="19" y2="12" />
-								<polyline points="12 5 19 12 12 19" />
-							</svg>
-						</Link>
-					</div>
-					<div className="grid grid-4">
-						{newProducts.map((product) => (
-							<ProductCard key={product.id} product={product} />
 						))}
 					</div>
 				</div>

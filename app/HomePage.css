@@ -51,16 +51,19 @@
 }
 
 .hero-title {
+	font-family: var(--font-slogan);
 	font-size: 64px;
-	font-weight: 700;
+	font-weight: 400;
 	line-height: 1.1;
-	letter-spacing: -2px;
+	letter-spacing: 0;
 	color: var(--color-white);
 	margin-bottom: 28px;
 }
 
 .hero-accent {
+	font-family: var(--font-slogan);
 	color: var(--color-gold);
+	font-weight: 400;
 }
 
 .hero-text {
@@ -388,11 +391,6 @@
 	.category-card {
 		aspect-ratio: 16/9;
 	}
-}
-
-/* New Products */
-.new-products-section {
-	background: var(--color-cream);
 }
 
 /* CTA Banner */

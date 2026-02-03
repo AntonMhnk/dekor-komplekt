@@ -34,8 +34,9 @@
 }
 
 .footer-logo-name {
+  font-family: var(--font-logo);
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--color-white);
 }
 

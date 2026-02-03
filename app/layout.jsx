@@ -97,8 +97,6 @@ export default function RootLayout({ children }) {
 		<html lang="ru">
 			<head>
 				<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-				<link rel="preconnect" href="https://fonts.googleapis.com" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 				<link rel="preload" as="image" href="/images/logo.webp" />
 				<script
 					type="application/ld+json"
