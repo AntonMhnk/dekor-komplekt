@@ -1,55 +1,56 @@
 /* Локальные шрифты */
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/fonts/Montserrat/static/Montserrat-Light.ttf') format('truetype');
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/static/Montserrat-Light.ttf") format("truetype");
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/static/Montserrat-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/fonts/Montserrat/static/Montserrat-Medium.ttf') format('truetype');
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/static/Montserrat-Medium.ttf") format("truetype");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/fonts/Montserrat/static/Montserrat-SemiBold.ttf') format('truetype');
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/static/Montserrat-SemiBold.ttf") format("truetype");
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Montserrat';
-	src: url('/fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+	font-family: "Montserrat";
+	src: url("/fonts/Montserrat/static/Montserrat-Bold.ttf") format("truetype");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Playfair Display';
-	src: url('/fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf') format('truetype');
+	font-family: "Playfair Display";
+	src: url("/fonts/Playfair_Display/static/PlayfairDisplay-Medium.ttf")
+		format("truetype");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Denistina';
-	src: url('/fonts/denistina_en.ttf') format('truetype');
+	font-family: "Denistina";
+	src: url("/fonts/denistina_en.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -91,9 +92,9 @@
 	--color-border: #e5e0db;
 
 	/* Шрифты */
-	--font-main: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
-	--font-logo: 'Playfair Display', Georgia, serif;
-	--font-slogan: 'Denistina', cursive;
+	--font-main: "Montserrat", -apple-system, BlinkMacSystemFont, sans-serif;
+	--font-logo: "Playfair Display", Georgia, serif;
+	--font-slogan: "Denistina", cursive;
 	--shadow-sm: 0 2px 8px rgba(74, 50, 40, 0.08);
 	--shadow-md: 0 4px 20px rgba(74, 50, 40, 0.12);
 	--shadow-lg: 0 8px 40px rgba(74, 50, 40, 0.16);
